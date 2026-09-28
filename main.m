@@ -10,4 +10,7 @@ voltageData = readVoltages('node_voltages.txt');
 y = triangularSolve(L,b,'lower');
 
 %Solve Uy=b using backward substitution 
-x = triangularSolve(U,y,'upper');
+x = triangularSolve(U,y,'upper'); %Our voltages 
+
+%Currents 
+currentData = computeCurrents(resistanceData,x); %third column is the current 
