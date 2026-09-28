@@ -14,3 +14,6 @@ x = triangularSolve(U,y,'upper'); %Our voltages
 
 %Currents 
 currentData = computeCurrents(resistanceData,x); %third column is the current 
+
+%Results 
+writeResults(x,currentData);
