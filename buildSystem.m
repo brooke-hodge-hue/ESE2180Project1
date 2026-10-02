@@ -1,6 +1,6 @@
 function [A,b] = buildSystem(resistanceData,voltageData)
 
-n = 25; %Setting up our dimensions for A and b 
+n = max(max(resistanceData(:,1:2))); %Find the number of nodes
 A = zeros(n,n); %Making a zeros matrix of A that is nxn 
 b = zeros(n,1); %Making the zeros vector that is nx1 
 
