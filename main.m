@@ -10,20 +10,23 @@ voltageData = readVoltages('node_voltages.txt');
 y = triangularSolve(L,b,'lower');
 
 %Solve Ux=y using backward substitution 
-x = triangularSolve(U,y,'upper'); %Our voltages 
+x = triangularSolve(U,y,'upper') %Our voltages 
 
 %Currents 
-currentData = computeCurrents(resistanceData,x); %third column is the current 
+currentData = computeCurrents(resistanceData,x) %third column is the current 
 
 %Power 
-powerDis = powerDissapation(x);
+powerDis = powerDissapation(x)
 
 %Bottom current 
 % Part 8ii - Bottom current
-bottomCurrents = BottomCurrent();
+bottomCurrents = BottomCurrent()
 
 %Effective Resistance 
-effectiveR = effectiveResistance(1,25,'node_resistances.txt',25);
+effectiveR = effectiveResistance(1,25,'node_resistances.txt',25)
+
+%Plotting effective Resistances 
+effectiveRValues = effectiveResistancePlot();
 
 % Write all results to output file
 writeResults(x,currentData,powerDis,bottomCurrents,effectiveR);
